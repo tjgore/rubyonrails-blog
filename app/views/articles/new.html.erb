@@ -2,6 +2,14 @@
   <div class="container">
     <div class="row">
       <div class="col-8 mt-4">
+      <% if @article.errors.any? %>
+      <p class="text-danger">The following errors are:</p>
+        <ul>
+        <% @article.errors.full_messages.each do |e| %>
+          <li class="text-danger"><%= e %></li>
+        <% end %>
+        </ul>
+      <% end%>
         <h1 class="font-weight-bold">Create an Article</h1>
         <%= form_for @article do |f| %>
 
